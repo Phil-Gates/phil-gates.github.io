@@ -350,12 +350,15 @@ def execute(filename: str) -> None:
 
 
 def update(cmds: str) -> None:
+    """
+    Update to latest and greatest binbows version!
+    """
     if cmds:
         with open(cmds, "w") as update:
-            update.write(requests.get("https://phil-gates.github.io/srcs/binbows").text)
+            update.write(requests.get("https://phil-gates.github.io/srcs/binbows.py").text)
     else:
         with open(__file__, "w") as update:
-            update.write(requests.get("https://phil-gates.github.io/srcs/binbows").text)
+            update.write(requests.get("https://phil-gates.github.io/srcs/binbows.py").text)
 
 
 def parsestring(cmd: str) -> None:
