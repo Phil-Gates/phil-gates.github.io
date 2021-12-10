@@ -28,6 +28,12 @@ except ModuleNotFoundError:
     print("Error: do pip(3) install requests to use Binbows™")
     print("If you do not have pip, see https://pip.pypa.io/en/stable/installation/")
     exit()
+try:
+    import sys
+except ModuleNotFoundError:
+    print("Error: do pip(3) install sys to use Binbows™")
+    print("If you do not have pip, see https://pip.pypa.io/en/stable/installation/")
+    exit()
 cmdlst = [
     "neofetch",
     "sleep",
@@ -392,4 +398,7 @@ def parsestring(cmd: str) -> None:
 
 
 if __name__ == "__main__":
-    terminal()
+    if len(sys.argv) < 3:
+        terminal()
+    elif sys.argv[1] == "-m" and len(sys.argv) >= 3:
+        parsestring(" ".join(sys.argv[2:]))
