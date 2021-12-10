@@ -5,4 +5,4 @@ BINBOWS
 -------
 
 Do everything *inefficiently*. A ~~useful~~ ***useless*** terminal.
-`warn use binbows`
+`python3 binbows.py -m warn use binbows`
