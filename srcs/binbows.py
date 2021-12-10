@@ -401,4 +401,6 @@ if __name__ == "__main__":
     if len(sys.argv) < 3:
         terminal()
     elif sys.argv[1] == "-m" and len(sys.argv) >= 3:
-        parsestring(" ".join(sys.argv[2:]))
+        cmds = " ".join(sys.argv[2:])
+        for cmd in cmds.split(" // "):
+            parsestring(cmd)
