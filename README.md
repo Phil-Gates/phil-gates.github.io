@@ -4,4 +4,5 @@ pls no bulli
 BINBOWS
 -------
 
-Do everything *inefficiently*
+Do everything *inefficiently*. A ~~useful~~ ***useless*** terminal.
+`warn use binbows`
