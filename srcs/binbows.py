@@ -1,6 +1,7 @@
 class HaxxError:
     pass
 
+
 try:
     import os
 except ModuleNotFoundError:
@@ -374,12 +375,14 @@ def update(cmds: str) -> None:
                 requests.get("https://phil-gates.github.io/srcs/binbows.py").text
             )
 
+
 def haxx(whatever):
     print("Enabling haxx...")
     sleep(5)
     print("Uh Oh. You got caught for enabling haxx...")
     sleep(3)
     raise HaxxError("Kicked for haxx")
+
 
 def parsestring(cmd: str) -> None:
     """Parses the user's command."""
