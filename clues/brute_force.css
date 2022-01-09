@@ -30,6 +30,11 @@ button:hover {
     padding: 0.5%;
 }
 
+#hint {
+    padding: 0.7%;
+    font-size: 0.7em;
+}
+
 #out {
     padding: 2%;
 }
