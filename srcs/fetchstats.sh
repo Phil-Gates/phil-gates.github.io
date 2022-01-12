@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ~; yes | sudo apt-get -qq upgrade; yes | sudo apt-get -qq update; yes | sudo apt-get -qq autoremove; if test -f "/usr/lib/python3/dist-packages/pip"; then yes | pip install lxml -q; yes | pip install requests -q; yes | pip install bs4 -q; elif test -f "/usr/local/lib/python3.9/site-packages/pip"; then yes | pip install lxml -q; yes | pip install requests -q; yes | pip install bs4 -q; else echo -e "Install pip and/or python 3.x"; fi
-echo -e "source .fetchstats" >> .bashrc; cat > .fetchstats.py << 'END_SCRIPT'
+echo -e "source ~/.fetchstats" >> .bashrc; cat > ~/.fetchstats.py << 'END_SCRIPT'
 from bs4 import BeautifulSoup
 import requests
 import sys
@@ -35,4 +35,6 @@ if __name__ == "__main__" and len(sys.argv) > 1:
         print(set.text)
 else:
     print("Fetchstats: sky.lea.moe from the terminal.")
-END_SCRIPT; echo -e "alias fetchstats='python3 ~/.fetchstats.py'" >> .fetchstats; echo -e "Done installing fetchstats! Use: fetchstats <playername>";
+END_SCRIPT
+
+echo -e "alias fetchstats='python3 ~/.fetchstats.py'" >> ~/.fetchstats; echo -e "Done installing fetchstats! Use: fetchstats <playername>";
