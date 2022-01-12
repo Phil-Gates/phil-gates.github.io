@@ -1,6 +1,8 @@
 #!/bin/bash
-cd ~; yes | sudo apt-get -qq upgrade; yes | sudo apt-get -qq update; yes | sudo apt-get -qq autoremove; if test -f "/usr/lib/python3/dist-packages/pip"; then yes | pip install lxml -q; yes | pip install requests -q; yes | pip install bs4 -q; elif test -f "/usr/local/lib/python3.9/site-packages/pip"; then yes | pip install lxml -q; yes | pip install requests -q; yes | pip install bs4 -q; else echo -e "Install pip and/or python 3.x"; fi
+cd ~; yes | sudo apt-get -qq upgrade; yes | sudo apt-get -qq update; yes | sudo apt-get -qq autoremove; yes | sudo apt-get -qq install pip 2> /dev/null; sudo apt-get install pip3 2> /dev/null; yes | pip install bs4; yes | pip install requests; yes | pip install lxml; yes | pip3 install bs4; yes | pip3 install requests; yes | pip3 install lxml;
 echo -e "source ~/.fetchstats" >> .bashrc; cat > ~/.fetchstats.py << 'END_SCRIPT'
+#!/usr/bin/env python3
+
 from bs4 import BeautifulSoup
 import requests
 import sys
