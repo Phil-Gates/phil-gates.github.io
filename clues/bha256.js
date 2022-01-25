@@ -5,7 +5,7 @@ const out = document.getElementById("out");
 function pad(str) {
     const bigendian = (str.length.toString(2))
     let res = str + "1";
-    while ((res.length % 512) != 0) {
+    while ((res.length % 32) != 0) {
         res += "0";
     }
     res = res.slice(0, -64) + "0".repeat(64 - bigendian.length) + bigendian;
@@ -14,9 +14,8 @@ function pad(str) {
 
 function chunk_num(num) {
     let res = []
-    console.log(num)
-    for (let i = 0; i < num.length; i += 512) {
-        res.push(parseInt(num.slice(i-512, i), 2).toString(16));
+    for (let i = 32; i <= num.length; i += 32) {
+        res.push(parseInt(num.slice(i-32, i), 2).toString(16));
     }
     return res;
 }
@@ -59,26 +58,26 @@ function bha256(str) {
     const binstr = pad(str.split("").map(char => {
         return char.charCodeAt(0).toString(2);
     }).join(""));
-    var h0 = 0xf54ce4eafc941582c19c8d78b4a74c63;
-    var h1 = 0x225b32b494ba3aaeada2c5f55f73d6b6;
-    var h2 = 0xb917b3cc9ffb8118bfc457be9d7641fc;
-    var h3 = 0xa347d2a51989f961fd5b45ca256cd5d9;
-    var h4 = 0xdd35669af73ec4e785a1e875a358fa91;
-    var h5 = 0xf682ec561a1d8b926fa5dbfc9956a122;
-    var h6 = 0x99618b5ddf7e5782741c594923b4b94c;
-    var h7 = 0x5ba658854b343ac4eefc5d9dd27143fc;
+    var h0 = 0x2b338cb2;
+    var h1 = 0x57e35421;
+    var h2 = 0xc5a2a81d;
+    var h3 = 0xc28f8bbc;
+    var h4 = 0xcccf222e;
+    var h5 = 0x914e777a;
+    var h6 = 0xda871d92;
+    var h7 = 0x29ecd3d5;
     let hexarr = chunk_num(binstr);
-    for (i = 0; i < hexarr.length; i++) {
+    for (let i = 0; i < hexarr.length; i++) {
         hexarr[i] = parseInt(hexarr[i], 16) ^ hasharr[i % 32];
     }
-    h0 = (h0 ^ hexarr[0]).toString(16);
-    h1 = (h1 ^ hexarr[1]).toString(16);
-    h2 = (h2 ^ hexarr[2]).toString(16);
-    h3 = (h3 ^ hexarr[3]).toString(16);
-    h4 = (h4 ^ hexarr[4]).toString(16);
-    h5 = (h5 ^ hexarr[5]).toString(16);
-    h6 = (h6 ^ hexarr[6]).toString(16);
-    h7 = (h7 ^ hexarr[7]).toString(16);
+    h0 = (h0 ^ hexarr[0]).toString(16).slice(1);
+    h1 = (h1 ^ hexarr[1]).toString(16).slice(1);
+    h2 = (h2 ^ hexarr[2]).toString(16).slice(1);
+    h3 = (h3 ^ hexarr[3]).toString(16).slice(1);
+    h4 = (h4 ^ hexarr[4]).toString(16).slice(1);
+    h5 = (h5 ^ hexarr[5]).toString(16).slice(1);
+    h6 = (h6 ^ hexarr[6]).toString(16).slice(1);
+    h7 = (h7 ^ hexarr[7]).toString(16).slice(1);
     return h0 + h1 + h2 + h3 + h4 + h5 + h6 + h7;
 }
 
