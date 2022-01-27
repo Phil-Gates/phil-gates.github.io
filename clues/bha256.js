@@ -57,7 +57,7 @@ function bha256(str) {
         0xdfac54ff
     ];
     const binstr = pad(str.split("").map(char => {
-        return char.charCodeAt(0).toString(2);
+        return "0".repeat(8 - char.charCodeAt(0).toString(2).length) + char.charCodeAt(0).toString(2);
     }).join(""));
     var h0 = 0x2b338cb2;
     var h1 = 0x57e35421;
