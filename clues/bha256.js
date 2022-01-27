@@ -71,14 +71,14 @@ function bha256(str) {
     for (let i = 0; i < hexarr.length; i++) {
         hexarr[i] = parseInt(hexarr[i], 16) ^ hasharr[i % 32];
     }
-    h0 = (h0 ^ hexarr[0]).toString(16).slice(1);
-    h1 = (h1 ^ hexarr[1]).toString(16).slice(1);
-    h2 = (h2 ^ hexarr[2]).toString(16).slice(1);
-    h3 = (h3 ^ hexarr[3]).toString(16).slice(1);
-    h4 = (h4 ^ hexarr[4]).toString(16).slice(1);
-    h5 = (h5 ^ hexarr[5]).toString(16).slice(1);
-    h6 = (h6 ^ hexarr[6]).toString(16).slice(1);
-    h7 = (h7 ^ hexarr[7]).toString(16).slice(1);
+    h0 = (h0 ^ hexarr[0]).toString(16);
+    h1 = (h1 ^ hexarr[1]).toString(16);
+    h2 = (h2 ^ hexarr[2]).toString(16);
+    h3 = (h3 ^ hexarr[3]).toString(16);
+    h4 = (h4 ^ hexarr[4]).toString(16);
+    h5 = (h5 ^ hexarr[5]).toString(16);
+    h6 = (h6 ^ hexarr[6]).toString(16);
+    h7 = (h7 ^ hexarr[7]).toString(16);
     return h0 + h1 + h2 + h3 + h4 + h5 + h6 + h7;
 }
 
