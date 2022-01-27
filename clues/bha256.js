@@ -8,6 +8,7 @@ function pad(str) {
     while ((res.length % 32) != 0) {
         res += "0";
     }
+    res += "0".repeat(64)
     res = res.slice(0, -64) + "0".repeat(64 - bigendian.length) + bigendian;
     return res;
 }
