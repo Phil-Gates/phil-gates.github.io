@@ -8,11 +8,11 @@
     <title></title>
     <script>
         window.onload = function () {
-            var words = fetch("./words.json").json;
+            var words = fetch("./words.json");
             var current = new Date(Date.now());
             var offs = new Date("03/09/2022");
             var dist = Math.ceil((Math.abs(current - offs)) / (1000 * 60 * 60 * 24));
-            var wordle = words[dist + 263];
+            var wordle = (words.json)[dist + 263];
             document.getElementById("currentWord").innerHTML = wordle;
             document.title = wordle;
         }
