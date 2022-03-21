@@ -7,12 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <script>
-        window.onload = function () {
-            var words = (async function () {
+        window.onload = async function () {
+            var words = await (async function () {
                 return (
-                    await (
-                        await fetch("./words.json")
-                    ).json()
+                    (await fetch("./words.json")).json()
                 )})();
             var current = new Date(Date.now());
             var offs = new Date("03/09/2022");
