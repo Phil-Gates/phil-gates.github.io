@@ -12,7 +12,7 @@
             var current = new Date(Date.now());
             var offs = new Date("03/09/2022");
             var dist = Math.ceil((Math.abs(current - offs)) / (1000 * 60 * 60 * 24));
-            var wordle = words[dist + 263];
+            var wordle = words[dist + 262];
             document.getElementById("currentWord").innerHTML = wordle;
             document.title = wordle;
         }
