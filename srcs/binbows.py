@@ -1,4 +1,4 @@
-class HaxxError:
+class HaxxError(Exception):
     pass
 
 
