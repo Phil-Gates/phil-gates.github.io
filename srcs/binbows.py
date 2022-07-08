@@ -39,6 +39,7 @@ except ModuleNotFoundError:
     print("If you do not have pip, see https://pip.pypa.io/en/stable/installation/")
     exit()
 cmdlst = [
+    "lstcmds"
     "neofetch",
     "sleep",
     "wipe",
@@ -75,10 +76,14 @@ def input_with_prefill(prompt: str, text: str) -> str:
     readline.set_pre_input_hook()
     return result
 
+def lstcmds(_) -> None:
+    for cmd in cmdlst:
+        print(cmd)
 
 def terminal() -> None:
     """Opens the Binbows terminal."""
     print("\x1B[2J")
+    print("Type lstcmds to list all commands")
     while True:
         try:
             cmd = input("binbowsonly@polarbear:~$ ")
